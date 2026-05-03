@@ -22,8 +22,8 @@ templates = Jinja2Templates(directory="views")
 BASE_URL = os.getenv("BASE_URL", "http://localhost:8000")
 
 @app.get("/")
-def home_page(req: Request):
-    return templates.TemplateResponse("index.html", {"request": req})
+def home_page(request: Request):
+    return templates.TemplateResponse(name="index.html", context={"request": request})
 
 
 @app.get("/shorturl")
